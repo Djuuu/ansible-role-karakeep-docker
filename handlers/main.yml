@@ -1,6 +1,6 @@
 ---
 
-- name: Restart hoarder
+- name: Restart karakeep
   # ERROR! Using 'include_role' as a handler is not supported.
   # https://github.com/ansible/ansible/issues/20493
   # ansible.builtin.include_role: { name: djuuu.docker_project, tasks_from: compose-restart }

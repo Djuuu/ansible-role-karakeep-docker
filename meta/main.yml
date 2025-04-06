@@ -7,11 +7,11 @@ dependencies:
 
 galaxy_info:
   namespace: djuuu
-  role_name: hoarder_docker
+  role_name: karakeep_docker
   author: Julien Tardot
-  description: Install Hoarder Docker Compose project. https://hoarder.app
+  description: Install Karakeep (formerly Hoarder) Docker Compose project. https://karakeep.app
 
-  issue_tracker_url: https://github.com/Djuuu/ansible-role-hoarder-docker
+  issue_tracker_url: https://github.com/Djuuu/ansible-role-karakeep-docker
 
   license: Beerware
 
@@ -26,6 +26,7 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - hoarder
+    - karakeep
     - bookmarks
     - docker
+    - hoarder

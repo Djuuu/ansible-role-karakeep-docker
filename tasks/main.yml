@@ -20,7 +20,7 @@
     src: .env.j2
     dest: "{{ docker_project_path }}/.env"
     mode: '0664'
-  notify: Restart hoarder
+  notify: Restart karakeep
 
 - name: Template docker-compose.yml
   ansible.builtin.template:

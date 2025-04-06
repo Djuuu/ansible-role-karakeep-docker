@@ -8,7 +8,7 @@ services:
 
   web:
     container_name: {{ docker_project_slug }}
-    image: ghcr.io/hoarder-app/hoarder:${HOARDER_VERSION:-release}
+    image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release}
     restart: unless-stopped
 
     {{ docker_project_compose_service_additional_options | indent(4) }}
@@ -30,7 +30,7 @@ services:
       wud.tag.include: ^\d+\.\d+\.\d+$$
 
   chrome:
-    image: gcr.io/zenika-hub/alpine-chrome:{{ hoarder_chrome_version }}
+    image: gcr.io/zenika-hub/alpine-chrome:{{ karakeep_chrome_version }}
     restart: unless-stopped
     command:
       - --no-sandbox
@@ -41,7 +41,7 @@ services:
       - --hide-scrollbars
 
   meilisearch:
-    image: getmeili/meilisearch:{{ hoarder_meilisearch_version }}
+    image: getmeili/meilisearch:{{ karakeep_meilisearch_version }}
     restart: unless-stopped
     env_file:
       - .env
