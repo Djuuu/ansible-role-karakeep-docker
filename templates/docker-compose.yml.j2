@@ -1,6 +1,6 @@
 #jinja2: trim_blocks: True, lstrip_blocks: True
 # {{ ansible_managed }}
-# {{ template_fullpath }}
+# {{ template_fullpath | regex_replace('^' ~ role_path, role_path | basename) }}
 
 name: {{ docker_project_slug }}
 
