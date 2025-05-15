@@ -35,7 +35,7 @@ karakeep_project_name: karakeep
 karakeep_traefik_loadbalancer_server_port: 3000
 
 # Main service additional docker-compose options (ex: cpu_shares, deploy, ...)
-karakeep_compose_service_additional_options: |
+karakeep_service_additional_options: |
   #ports:
   #  - 3000:3000
 ```

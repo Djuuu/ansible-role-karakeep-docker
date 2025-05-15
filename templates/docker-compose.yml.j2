@@ -7,11 +7,13 @@ name: {{ docker_project_slug }}
 services:
 
   web:
-    container_name: {{ docker_project_slug }}
     image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release}
-    restart: unless-stopped
+    container_name: {{ docker_project_slug }}
+    restart: {{ docker_project_restart }}
 
-    {{ docker_project_compose_service_additional_options | indent(4) }}
+    {{ docker_project_service_network_options | indent(4) }}
+
+    {{ docker_project_service_additional_options | indent(4) }}
 
     env_file:
       - .env
@@ -31,7 +33,8 @@ services:
 
   chrome:
     image: gcr.io/zenika-hub/alpine-chrome:{{ karakeep_chrome_version }}
-    restart: unless-stopped
+    restart: {{ docker_project_restart }}
+    {{ docker_project_service_network_options | indent(4) }}
     command:
       - --no-sandbox
       - --disable-gpu
@@ -42,7 +45,8 @@ services:
 
   meilisearch:
     image: getmeili/meilisearch:{{ karakeep_meilisearch_version }}
-    restart: unless-stopped
+    restart: {{ docker_project_restart }}
+    {{ docker_project_service_network_options | indent(4) }}
     env_file:
       - .env
     environment:
@@ -66,7 +70,6 @@ volumes:
       device: ./meilisearch
       o: bind
 
-networks:
-  {{ docker_project_default_network | indent(2) }}
+{{ docker_project_networks }}
 
 {{ docker_project_compose_additional_options }}
