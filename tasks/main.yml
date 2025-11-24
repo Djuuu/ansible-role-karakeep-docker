@@ -27,11 +27,11 @@
     src: docker-compose.yml.j2
     dest: "{{ docker_project_path }}/docker-compose.yml"
     mode: '0644'
-    # validate: "{{ docker_cmd }} compose -f %s config"
+    # validate: "{{ docker_compose_cmd }} -f %s config"
     backup: true
 
 - name: Validate docker-compose.yml
-  ansible.builtin.command: "{{ docker_cmd }} compose -f {{ docker_project_path }}/docker-compose.yml config"
+  ansible.builtin.command: "{{ docker_compose_cmd }} -f {{ docker_project_path }}/docker-compose.yml config"
   changed_when: false
 
 ## Run
