@@ -47,10 +47,10 @@ karakeep_service_additional_options: |
 karakeep_docker_version: release
 
 # gcr.io/zenika-hub/alpine-chrome image version
-karakeep_chrome_version: 123
+karakeep_chrome_version: 124
 
 # getmeili/meilisearch image version
-karakeep_meilisearch_version: v1.11.1
+karakeep_meilisearch_version: v1.37.0
 ```
 
 ```yaml
