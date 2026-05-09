@@ -23,7 +23,7 @@ karakeep_docker_version: release
 karakeep_chrome_version: 124
 
 # getmeili/meilisearch image version
-karakeep_meilisearch_version: v1.37.0
+karakeep_meilisearch_version: v1.41.0
 
 # Public address of service
 karakeep_nextauth_url: http://localhost:3000
