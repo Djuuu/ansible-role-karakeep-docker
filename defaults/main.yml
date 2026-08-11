@@ -19,14 +19,23 @@ karakeep_service_additional_options: |
 # ghcr.io/karakeep-app/karakeep image version
 karakeep_docker_version: release
 
-# gcr.io/zenika-hub/alpine-chrome image version
-karakeep_chrome_version: 124
+# ghcr.io/karakeep-app/karakeep-chrome image version
+karakeep_chrome_version: release
 
 # getmeili/meilisearch image version
 karakeep_meilisearch_version: v1.41.0
 
 # Application logging verbosity level
 karakeep_log_level: debug
+
+# Workers
+karakeep_workers_port: 0
+karakeep_workers_host: 127.0.0.1
+karakeep_workers_enabled_workers:
+karakeep_workers_disabled_workers:
+
+# The path where crawled assets will be stored. If not set, defaults to `${DATA_DIR}/assets`
+karakeep_assets_dir:
 
 # Public address of service
 karakeep_nextauth_url: http://localhost:3000
@@ -65,6 +74,14 @@ karakeep_max_rss_feeds_per_user: 1000
 # The maximum number of webhooks a user can create
 karakeep_max_webhooks_per_user: 100
 
+# Asset Storage (S3-compatible object storage). Setting karakeep_asset_store_s3_endpoint enables S3 storage.
+karakeep_asset_store_s3_endpoint:
+karakeep_asset_store_s3_region:
+karakeep_asset_store_s3_bucket:
+karakeep_asset_store_s3_access_key_id:
+karakeep_asset_store_s3_secret_access_key:
+karakeep_asset_store_s3_force_path_style: false
+
 # Authentication / Signup
 
 # If enabled, no new signups will be allowed and the signup button will be disabled in the UI
@@ -102,7 +119,7 @@ karakeep_openai_reasoning_effort:
 karakeep_ollama_base_url:
 karakeep_ollama_keep_alive:
 karakeep_semantic_search_enabled: true
-karakeep_inference_text_model: gpt-4.1-mini
+karakeep_inference_text_model: gpt-5.6-luna
 karakeep_inference_image_model: gpt-4o-mini
 karakeep_embedding_enable_auto_indexing:
 karakeep_embedding_openai_api_key:
@@ -115,7 +132,7 @@ karakeep_embedding_num_workers: 1
 karakeep_embedding_job_timeout_sec: 60
 karakeep_inference_context_length: 2048
 karakeep_inference_max_output_tokens: 2048
-karakeep_inference_use_max_completion_tokens: false
+karakeep_inference_use_max_completion_tokens: true
 karakeep_inference_lang: english
 karakeep_inference_num_workers: 1
 karakeep_inference_enable_auto_tagging: true
@@ -148,6 +165,7 @@ karakeep_crawler_enable_autoconsent: true
 karakeep_crawler_ytdlp_args:
 karakeep_crawler_monolith_timeout_sec: 5
 karakeep_crawler_monolith_args:
+karakeep_browser_cookie_path:
 karakeep_html_content_size_inline_threshold_bytes: 5120
 
 # OCR Configs
@@ -155,6 +173,10 @@ karakeep_ocr_cache_dir: /tmp
 karakeep_ocr_langs: eng
 karakeep_ocr_confidence_threshold: 50
 karakeep_ocr_use_llm: false
+
+# Webhook Configs
+karakeep_webhook_timeout_sec: 5
+karakeep_webhook_retry_times: 3
 
 # SMTP Configuration
 karakeep_smtp_host:
@@ -169,3 +191,13 @@ karakeep_crawler_http_proxy:
 karakeep_crawler_https_proxy:
 karakeep_crawler_no_proxy:
 karakeep_crawler_allowed_internal_hostnames:
+
+# Monitoring
+karakeep_otel_tracing_enabled: false
+karakeep_otel_exporter_otlp_traces_endpoint:
+karakeep_otel_service_name: karakeep
+karakeep_otel_sample_rate: 1.0
+karakeep_event_logs_enabled: false
+karakeep_otel_event_logs_export_enabled: false
+karakeep_otel_exporter_otlp_logs_endpoint:
+karakeep_prometheus_auth_token:
